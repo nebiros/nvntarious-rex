@@ -1,29 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Product:</strong>
-  <%= @item.product_id %>
-</p>
+<div class="btn-group" role="group" aria-label="">
+  <%= link_to t("edit"), edit_item_path(@item), {class: "btn btn-secondary"} %>
+  <%= link_to t("back"), items_path, {class: "btn btn-secondary"} %>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @item.type %>
-</p>
+<hr/>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @item.quantity %>
-</p>
+<div class="jumbotron"><div class="container">
+  <p>
+    <strong><%= t("product") %>:</strong>
+    <%= @item.product_id %>
+  </p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @item.cost %>
-</p>
+  <p>
+    <strong><%= t("type") %>:</strong>
+    <%= Item::TYPE[@item.item_type] %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+  <p>
+    <strong><%= t("quantity") %>:</strong>
+    <%= @item.quantity %>
+  </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <p>
+    <strong><%= t("cost") %>:</strong>
+    <%= @item.cost %>
+  </p>
+
+  <p>
+    <strong><%= t("price") %>:</strong>
+    <%= @item.price %>
+  </p>
+</div></div>

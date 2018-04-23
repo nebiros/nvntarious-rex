@@ -1,6 +1,9 @@
-<h1>Editing Product</h1>
+<h2><%= t("editing_product") %></h2>
+<div class="btn-group" role="group" aria-label="">
+  <%= link_to t("show"), @product, {class: "btn btn-secondary"} %>
+  <%= link_to t("back"), products_path, {class: "btn btn-secondary"} %>
+</div>
+
+<hr/>
 
 <%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>

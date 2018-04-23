@@ -1,5 +1,8 @@
-<h1>New Item</h1>
+<h2><%= t("new_item") %></h2>
+<div class="btn-group" role="group" aria-label="">
+  <%= link_to t("back"), items_path, {class: "btn btn-secondary"} %>
+</div>
+
+<hr/>
 
 <%= render 'form', item: @item %>
-
-<%= link_to 'Back', items_path %>

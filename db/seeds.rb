@@ -1,5 +1,7 @@
 require "csv"
 
+User.new(email: "admin@example.com", password: "admin123").save
+
 csv_text = File.read(Rails.root.join("lib", "seeds", "inventario.csv"))
 csv = CSV.parse(csv_text, headers: true, col_sep: ";", encoding: "UTF-8")
 csv.each do |row|
