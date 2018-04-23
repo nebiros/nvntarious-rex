@@ -1,11 +1,12 @@
-GIT_VERSION = `git rev-parse --short HEAD`.strip.freeze
-TIMESTAMP = Time.now.utc.to_i
-EB_LABEL = "#{GIT_VERSION}-#{TIMESTAMP}".strip.freeze
-
 def eb_deploy(eb_env_name = "production-env")
+  git_path = `which git`.strip.freeze
+  git_version = `#{git_path} rev-parse --short HEAD`.strip.freeze
+  timestamp = Time.now.utc.to_i
+  eb_label = "#{git_version}-#{timestamp}".strip.freeze
+
   sh "eb use #{eb_env_name}"
-  sh "eb deploy #{eb_env_name} --profile evelyn --label #{EB_LABEL} -v"
-  sh "git tag -a -m \"Bumps builds/#{eb_env_name}/#{EB_LABEL}\" \"builds/#{eb_env_name}/#{EB_LABEL}\""
+  sh "eb deploy #{eb_env_name} --profile evelyn --label #{eb_label} -v"
+  sh "git tag -a -m \"Bumps builds/#{eb_env_name}/#{eb_label}\" \"builds/#{eb_env_name}/#{eb_label}\""
   sh "git push --tags"
 end
 
