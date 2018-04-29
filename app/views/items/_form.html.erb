@@ -11,29 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :product_id %>
     <%= form.number_field :product_id, id: :item_product_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :item_type %>
-    <%= form.select :item_type, Item::TYPE, {id: :item_type, include_blank: true, class: "custom-select"} %>
+    <%= form.select :item_type, Item::TYPE, {}, id: :item_type, include_blank: true, class: "custom-select" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
     <%= form.number_field :quantity, id: :item_quantity, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cost %>
     <%= form.number_field :cost, id: :item_cost, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
     <%= form.number_field :price, id: :item_price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :created_at %>
+    <%= form.date_field :created_at, id: :created_at, class: "form-control" %>
   </div>
 
   <hr/>

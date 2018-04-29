@@ -23,8 +23,8 @@
     <tbody>
       <% @items.each do |item| %>
         <tr>
-          <td><%= item.product_id %></td>
-          <td><%= item.item_type %></td>
+          <td><%= item.product.name %></td>
+          <td><%= Item::TYPE[item.item_type].to_s.capitalize %></td>
           <td><%= item.quantity %></td>
           <td><%= item.cost %></td>
           <td><%= item.price %></td>
