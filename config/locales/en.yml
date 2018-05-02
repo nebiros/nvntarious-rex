@@ -52,3 +52,8 @@ en:
   quantity: "Quantity"
   cost: "Cost"
   price: "Price"
+  purchases: "Purchases"
+  sales: "Sales"
+  inventory: "Inventory"
+  total_cost: "Total Cost"
+  export_to_csv: "Export to CSV"

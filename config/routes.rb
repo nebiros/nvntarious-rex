@@ -1,3 +1,4 @@
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
   devise_for :users
 
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :items
+
+  get "inventory", to: "items#inventory"
+  get "purchases", to: "items#purchases"
+  get "sales", to: "items#sales"
+
   resources :products
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

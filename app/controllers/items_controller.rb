@@ -4,8 +4,46 @@ class ItemsController < ApplicationController
 
   # GET /items
   # GET /items.json
+  # GET /items.csv
   def index
     @items = Item.all
+  end
+
+  # GET /inventory
+  # GET /inventory.json
+  # GET /inventory.csv
+  def inventory
+    @items = Item.inventory
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data Item.inventory_to_csv, filename: "inventory-#{Date.today}.csv" }
+    end
+  end
+
+  # GET /purchases
+  # GET /purchases.csv
+  def purchases
+    @items = Item.all.where(item_type: Item::TYPE.index("compra").to_i)
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data Item.purchases_to_csv, filename: "purchases-#{Date.today}.csv" }
+    end
+  end
+
+  # GET /sales
+  # GET /sales.csv
+  def sales
+    @items = Item.all.where(item_type: Item::TYPE.index("venta").to_i)
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data Item.sales_to_csv, filename: "sales-#{Date.today}.csv" }
+    end
   end
 
   # GET /items/1
